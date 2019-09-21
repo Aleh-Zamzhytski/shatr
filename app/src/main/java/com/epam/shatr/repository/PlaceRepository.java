@@ -54,6 +54,7 @@ public class PlaceRepository {
         place.setStartTime(parseTime(record.get("startTime")));
         place.setEndTime(parseTime(record.get("endTime")));
         place.setStartDate(parseDate(record.get("startDate")));
+        place.setEndDate(parseDate(record.get("endDate")));
         place.setCoords(parseCoords(record.get("coords")));
         return place;
     }

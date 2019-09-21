@@ -47,13 +47,13 @@ public class LocatorService {
     private boolean isValid(Visit visit) {
         Place place = visit.getPlace();
         if (place.getStartDate() != null || place.getEndDate() != null) {
-            if (visit.getStartTime().isBefore(place.getStartDate()) ||
-                    visit.getEndTime().isAfter(place.getEndTime())) {
+            if (visit.getStartTime().isBefore(place.getStartDate().toDateTimeAtStartOfDay().toLocalDateTime()) ||
+                    visit.getEndTime().isAfter(place.getEndDate().toDateTimeAtStartOfDay().toLocalDateTime())) {
                 return false;
             }
         }
-        return visit.getStartTime().isAfter(place.getStartTime()) &&
-                visit.getEndTime().isBefore(place.getEndTime());
+        return visit.getStartTime().isAfter(place.getStartTime().toDateTimeToday().toLocalDateTime()) &&
+                visit.getEndTime().isBefore(place.getEndTime().toDateTimeToday().toLocalDateTime());
     }
 
     public List<Visit> getPlacesByPath(Coordinates from, Coordinates to, LocalDateTime startDateTime,
