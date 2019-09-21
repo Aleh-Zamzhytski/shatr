@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.epam.shatr.entity.Location;
+import com.epam.shatr.service.LocatorService;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
