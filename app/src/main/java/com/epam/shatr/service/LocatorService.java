@@ -61,9 +61,9 @@ public class LocatorService {
         List<Coordinates> sliced = CoordinatesUtil.slice(from, to);
         List<Visit> toVisit = new ArrayList<>();
         for (Coordinates coordinates : sliced) {
-            List<Place> places = repository.getPlacesByLocation(coordinates, 10);
+            List<Place> places = repository.getPlacesByLocation(coordinates, 15);
             places.removeAll(visited);
-            toVisit.addAll(createVisits(from, startDateTime, visited));
+            toVisit.addAll(createVisits(from, startDateTime, places));
         }
         return toVisit;
     }

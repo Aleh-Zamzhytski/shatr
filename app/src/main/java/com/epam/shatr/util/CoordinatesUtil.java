@@ -40,8 +40,8 @@ public final class CoordinatesUtil {
         double longSlice = (from.getLongitude() - to.getLongitude()) / sliceCount;
         List<Coordinates> coordinates = new ArrayList<>();
         for (int i = 0; i < sliceCount; i++) {
-            coordinates.add(new Coordinates(from.getLatitude() + (sliceCount + 1) * latSlice,
-                    from.getLongitude() + (sliceCount + 1) * longSlice));
+            coordinates.add(new Coordinates(from.getLatitude() - (i + 1) * latSlice,
+                    from.getLongitude() - (i + 1) * longSlice));
         }
         return coordinates;
     }
