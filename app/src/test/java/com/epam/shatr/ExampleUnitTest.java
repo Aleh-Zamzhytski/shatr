@@ -1,5 +1,8 @@
 package com.epam.shatr;
 
+import org.joda.time.LocalDateTime;
+import org.joda.time.LocalTime;
+import org.joda.time.format.DateTimeFormat;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,6 +15,10 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+        LocalDateTime localDateTime =
+                LocalDateTime.parse("21.09.2019 08:00", DateTimeFormat.forPattern("dd.MM.yyyy HH:mm"));
+
+        LocalTime time = LocalTime.parse("09:30", DateTimeFormat.forPattern("HH:mm"));
+        assertTrue(time.toDateTimeToday().toLocalDateTime().isAfter(localDateTime));
     }
 }

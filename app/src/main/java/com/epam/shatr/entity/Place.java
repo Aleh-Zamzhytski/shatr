@@ -1,7 +1,8 @@
 package com.epam.shatr.entity;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalTime;
+
 import java.util.Objects;
 import java.util.StringJoiner;
 
@@ -13,7 +14,7 @@ public class Place {
     private LocalTime endTime;
     private LocalDate startDate;
     private LocalDate endDate;
-    private String coords;
+    private Coordinates coords;
 
     public String getName() {
         return name;
@@ -63,11 +64,11 @@ public class Place {
         this.endDate = endDate;
     }
 
-    public String getCoords() {
+    public Coordinates getCoords() {
         return coords;
     }
 
-    public void setCoords(String coords) {
+    public void setCoords(Coordinates coords) {
         this.coords = coords;
     }
 
